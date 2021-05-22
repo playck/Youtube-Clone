@@ -1,10 +1,21 @@
 import React from "react";
+import "./video_item.css";
 
-const VideoItem = (props) => {
+const VideoItem = ({ video: { snippet } }) => {
   return (
-    <div>
-      <h1>{props.video.snippet.title}</h1>
-    </div>
+    <li className="container">
+      <div className="video">
+        <img
+          className="thumbnails"
+          src={snippet.thumbnails.medium.url}
+          alt="video thumbnails"
+        />
+        <div className="metadata">
+          <p className="title">{snippet.title}</p>
+          <p className="channel">{snippet.channelTitle}</p>
+        </div>
+      </div>
+    </li>
   );
 };
 
