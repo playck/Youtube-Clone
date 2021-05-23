@@ -1,12 +1,17 @@
 import React from "react";
 import "./video_item.css";
 
-const VideoItem = ({ video: { snippet } }) => {
+const VideoItem = ({ video, video: { snippet }, onVideoClick, display }) => {
+  const displayType = display === "list" ? "list" : "grid";
+
   return (
-    <li className="container">
+    <li
+      className={`container ${displayType}`}
+      onClick={() => onVideoClick(video)}
+    >
       <div className="video">
         <img
-          className="thumbnails"
+          className="thumbnail"
           src={snippet.thumbnails.medium.url}
           alt="video thumbnails"
         />
